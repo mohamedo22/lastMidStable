@@ -1,6 +1,7 @@
 // UserService Class
 import 'package:dio/dio.dart';
 import 'package:your_mediator/Core/Consts/api_url.dart';
+import 'package:your_mediator/Features/Login/Provider/user_provider.dart';
 import 'package:your_mediator/Features/Login/model/auth_model.dart';
 
 class UserService {
@@ -67,10 +68,9 @@ class UserService {
     }
   }
   
-   Future<AuthModel?> getUserData(String username) async {
-    final String url = "${ApiConsts.baseURL}/User/GetByUsername/$username";
+   Future<AuthModel?> getUserData(int id) async {
     try {
-      final response = await dio.get(url);
+      final response = await dio.get("${ApiConsts.baseURL}/User/$id");
       if (response.statusCode == 200 || response.statusCode == 202) {
         return AuthModel.fromJson(response.data);
       } else {
@@ -80,5 +80,28 @@ class UserService {
       print('Error getting user data: $e');
       throw Exception('Error: $e');
     }
+
+  }
+  Future<bool> updatePassword(userID,oldPassword,newPassword) async{
+    try{
+      var response = await dio.patch("${ApiConsts.baseURL}/User/updatePassword",
+        data: {
+          "userID" : userID,
+          "oldPassword": oldPassword,
+          "newPassword":newPassword
+        }
+      );
+      if(response.statusCode == 200){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    catch(e){
+      print("error :$e");
+      return false;
+    }
+
   }
 }

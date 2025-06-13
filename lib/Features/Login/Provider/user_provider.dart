@@ -52,7 +52,11 @@ class UserProvider with ChangeNotifier {
       notifyListeners();
     }
   }
-
+  Future<bool> updatePassword(userID,oldPassword,newPassword) async{
+    print("prov");
+    var state = UserService().updatePassword(userID,oldPassword, newPassword);
+    return state;
+  }
   Future<void> refreshUserData() async {
     if (user == null) return;
     
@@ -61,9 +65,9 @@ class UserProvider with ChangeNotifier {
     
     try {
       // Get current username to refresh data
-      final username = user?.user?.username;
-      if (username != null) {
-        user = await UserService().getUserData(username);
+      final userID = user?.user?.userId;
+      if (userID != null) {
+        user = await UserService().getUserData(userID);
       }
     } catch (e) {
       print("Error refreshing user data: $e");

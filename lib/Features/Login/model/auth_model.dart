@@ -51,7 +51,7 @@ class User {
   });
 
   User.fromJson(Map<String, dynamic> json) {
-    userId = json["id"]; // Map "id" from JSON to `userId`
+    userId = json["userId"]; // Map "id" from JSON to `userId`
     username = json["username"];
     nationalId = json["national_Id"]; // Map "national_Id" from JSON to `nationalId`
     birthDate = json["birthDate"];

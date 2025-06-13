@@ -5,6 +5,9 @@ import 'package:your_mediator/Features/Login/Provider/user_provider.dart';
 import 'package:your_mediator/Features/Settings/Presentation/Widgets/CustomSettingsCard.dart';
 import 'package:your_mediator/Features/userProfile/presentation/pages/userProfile.dart';
 
+import '../../../privacy policy/Presentation/PrivacyPolicyScreen.dart';
+import '../../../termsOfService/presentation/termsScreen.dart';
+
 class SettingsTab extends StatelessWidget {
   static const String routeName = "Settings";
   const SettingsTab({super.key});
@@ -19,7 +22,7 @@ class SettingsTab extends StatelessWidget {
       body: Column(
         children: [
           // Header Container
-          _buildSettingsHeader(context),
+          // _buildSettingsHeader(context),
           
           // Settings Options
           Expanded(
@@ -57,30 +60,30 @@ class SettingsTab extends StatelessWidget {
                     },
                   ),
                   
-                  // App Settings Section
-                  _buildSectionHeader(context, "App Settings"),
+                  // // App Settings Section
+                  // _buildSectionHeader(context, "App Settings"),
                   
-                  _buildSettingsToggleCard(
-                    context,
-                    icon: Icons.notifications_outlined,
-                    title: "Notifications",
-                    subtitle: "Manage your notification preferences",
-                    iconBgColor: Colors.orange[100]!,
-                    iconColor: Colors.orange,
-                    value: true,
-                    onChanged: (value) {},
-                  ),
+                  // _buildSettingsToggleCard(
+                  //   context,
+                  //   icon: Icons.notifications_outlined,
+                  //   title: "Notifications",
+                  //   subtitle: "Manage your notification preferences",
+                  //   iconBgColor: Colors.orange[100]!,
+                  //   iconColor: Colors.orange,
+                  //   value: true,
+                  //   onChanged: (value) {},
+                  // ),
                   
-                  _buildSettingsToggleCard(
-                    context,
-                    icon: Icons.data_saver_off,
-                    title: "Data Saver",
-                    subtitle: "Reduce data usage in the app",
-                    iconBgColor: Colors.green[100]!,
-                    iconColor: Colors.green,
-                    value: false,
-                    onChanged: (value) {},
-                  ),
+                  // _buildSettingsToggleCard(
+                  //   context,
+                  //   icon: Icons.data_saver_off,
+                  //   title: "Data Saver",
+                  //   subtitle: "Reduce data usage in the app",
+                  //   iconBgColor: Colors.green[100]!,
+                  //   iconColor: Colors.green,
+                  //   value: false,
+                  //   onChanged: (value) {},
+                  // ),
                   
                   // Privacy & Legal Section
                   _buildSectionHeader(context, "Privacy & Legal"),
@@ -94,7 +97,10 @@ class SettingsTab extends StatelessWidget {
                     iconColor: Colors.red,
                     trailing: Icons.arrow_forward_ios,
                     onTap: () {
-                      // Navigate to privacy policy
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
+                      );
                     },
                   ),
                   
@@ -107,7 +113,10 @@ class SettingsTab extends StatelessWidget {
                     iconColor: Colors.teal,
                     trailing: Icons.arrow_forward_ios,
                     onTap: () {
-                      // Navigate to terms of service
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TermsOfServicePage()),
+                      );
                     },
                   ),
                   
@@ -137,61 +146,61 @@ class SettingsTab extends StatelessWidget {
     );
   }
   
-  Widget _buildSettingsHeader(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
-        ),
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 35,
-                backgroundColor: Colors.white.withOpacity(0.2),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 40,
-                    height: 40,
-                  ),
-                ),
-              ),
-              SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Your Mediator",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    "Settings",
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildSettingsHeader(BuildContext context) {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+  //     decoration: BoxDecoration(
+  //       color: Theme.of(context).primaryColor,
+  //       borderRadius: BorderRadius.only(
+  //         bottomLeft: Radius.circular(30),
+  //         bottomRight: Radius.circular(30),
+  //       ),
+  //     ),
+  //     child: Column(
+  //       children: [
+  //         Row(
+  //           children: [
+  //             CircleAvatar(
+  //               radius: 35,
+  //               backgroundColor: Colors.white.withOpacity(0.2),
+  //               child: CircleAvatar(
+  //                 radius: 30,
+  //                 backgroundColor: Colors.white,
+  //                 child: Image.asset(
+  //                   'assets/images/logo.png',
+  //                   width: 40,
+  //                   height: 40,
+  //                 ),
+  //               ),
+  //             ),
+  //             SizedBox(width: 15),
+  //             Column(
+  //               crossAxisAlignment: CrossAxisAlignment.start,
+  //               children: [
+  //                 Text(
+  //                   "Your Mediator",
+  //                   style: TextStyle(
+  //                     color: Colors.white,
+  //                     fontSize: 22,
+  //                     fontWeight: FontWeight.bold,
+  //                   ),
+  //                 ),
+  //                 SizedBox(height: 5),
+  //                 Text(
+  //                   "Settings",
+  //                   style: TextStyle(
+  //                     color: Colors.white.withOpacity(0.8),
+  //                     fontSize: 16,
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
   
   Widget _buildSectionHeader(BuildContext context, String title) {
     return Padding(
@@ -396,6 +405,8 @@ class SettingsTab extends StatelessWidget {
   }
   
   void _showChangePasswordDialog(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+
     final TextEditingController _currentPasswordController = TextEditingController();
     final TextEditingController _newPasswordController = TextEditingController();
     final TextEditingController _confirmPasswordController = TextEditingController();
@@ -455,6 +466,7 @@ class SettingsTab extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
+
               Navigator.of(context).pop();
             },
             child: Text(
@@ -466,21 +478,33 @@ class SettingsTab extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).primaryColor,
             ),
-            onPressed: () {
+            onPressed: () async{
               // Validate and update password
-              if (_newPasswordController.text == _confirmPasswordController.text) {
-                // Update password logic
+              if ((_newPasswordController.text == _confirmPasswordController.text) && _newPasswordController.text.isNotEmpty) {
+                var res = await UserProvider().updatePassword(userProvider.user?.user?.userId,_currentPasswordController.text, _newPasswordController.text);
+                if(res){
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Password updated successfully",style: TextStyle(fontSize: 15),),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                }
+                else {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("old password is wrong",style: TextStyle(fontSize: 15),),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              } else {
                 Navigator.of(context).pop();
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text("Password updated successfully"),
-                    backgroundColor: Colors.green,
-                  ),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text("Passwords do not match"),
+                    content: Text("Passwords do not match",style: TextStyle(fontSize: 15),),
                     backgroundColor: Colors.red,
                   ),
                 );

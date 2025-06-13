@@ -284,14 +284,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Navigator.pushNamed(context, Userprofile.routeName);
             },
           ),
-          _buildDrawerItem(
-            icon: Icons.contact_support_outlined,
-            title: "Contact Us",
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, ContctUsScreen.routeName);
-            },
-          ),
           Divider(),
           _buildDrawerItem(
             icon: Icons.settings,

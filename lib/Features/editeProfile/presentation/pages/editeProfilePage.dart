@@ -54,7 +54,7 @@ class _EditeprofilepageState extends State<Editeprofilepage> {
           children: [
             Icon(Icons.check_circle, color: Colors.white),
             SizedBox(width: 10),
-            Text("Profile updated successfully"),
+            Text("Profile updated successfully",style: TextStyle(fontSize: 12),),
           ],
         ),
         backgroundColor: Colors.green,
