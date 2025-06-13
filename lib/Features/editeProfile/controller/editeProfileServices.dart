@@ -6,11 +6,12 @@ import 'package:your_mediator/Features/editeProfile/Model/editProfile.dart';
 
 class EditProfileServices{
   static Dio dio = Dio();
-  static Future<dynamic> editeData(phone, username, email, address) async {
+  static Future<dynamic> editeData(userID,phone, username, email, address) async {
     try {
       Response response = await dio.patch(
         "${ApiConsts.baseURL}/User/editprof", 
         data: {
+          "userId":userID,
           "phone": phone,
           "username": username,
           "email": email,

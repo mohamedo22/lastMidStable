@@ -5,8 +5,8 @@ import 'package:your_mediator/Features/editeProfile/controller/editeProfileServi
 
 class EditProfileProvider extends ChangeNotifier{
   EditeProfileModel? model;
-  checkData(phone, email, address, userName)async{
-    model = await EditProfileServices.editeData(phone, userName, email, address);
+  checkData(userID,phone, email, address, userName)async{
+    model = await EditProfileServices.editeData(userID,phone, userName, email, address);
     notifyListeners();
     await UserProvider().refreshUserData();
   }

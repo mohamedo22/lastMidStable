@@ -210,9 +210,10 @@ class _EditeprofilepageState extends State<Editeprofilepage> {
                       }
                       
                       setState(() => isLoading = true);
-                      
+                      final userProvider = Provider.of<UserProvider>(context, listen: false);
                       try {
                         await profileProvider.checkData(
+                          userProvider.user?.user?.userId,
                           phone.text, 
                           email.text, 
                           address.text, 
